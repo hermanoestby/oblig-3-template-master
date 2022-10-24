@@ -82,6 +82,7 @@ public class SBinTre<T> {
         return antall == 0;
     }
 
+    //Oppgave 1
     public boolean leggInn(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
