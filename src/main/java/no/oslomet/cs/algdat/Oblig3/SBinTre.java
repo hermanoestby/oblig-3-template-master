@@ -10,12 +10,9 @@ public class SBinTre<T> {
 
 
     public static void main(String[] args) {
-        Integer[] a = {4,7,2,9,5,10,8,1,3,6};
-        SBinTre<Integer> tre = new SBinTre<>(Comparator.naturalOrder());
-        for (int verdi : a) {tre.leggInn(verdi); }
-        System.out.println(tre.antall()); // Utskrift: 10
-    }
 
+
+    }
 
 
     private static final class Node<T>   // en indre nodeklasse
@@ -104,29 +101,27 @@ public class SBinTre<T> {
         while (p != null)       // fortsetter til p er ute av treet
         {
             q = p;                                 // q er forelder til p
-            cmp = comp.compare(verdi,p.verdi);     // bruker komparatoren
+            cmp = comp.compare(verdi, p.verdi);     // bruker komparatoren
             p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
         }
 
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi,null);  // oppretter en ny node, med foreldrepeker lik null siden den ikke er satt inn noe sted
+        p = new Node<T>(verdi, null);  // oppretter en ny node, med foreldrepeker lik null siden den ikke er satt inn noe sted
 
-        if (q == null){
+        if (q == null) {
             rot = p; // p blir rotnode
-            Node <T> n = new Node<T>(verdi, null); //Oppretter en node n med forelder med nullverdi
-        }
-        else if (cmp < 0){
+            Node<T> n = new Node<T>(verdi, null); //Oppretter en node n med forelder med nullverdi
+        } else if (cmp < 0) {
             q.venstre = p; // venstre barn til q
-            Node <T> n = new Node <T>(verdi,q); //Oppretter en ny node n med q som foreldrepeker
-        }
-        else{
+            Node<T> n = new Node<T>(verdi, q); //Oppretter en ny node n med q som foreldrepeker
+        } else {
             q.høyre = p;           // høyre barn til q
-            Node <T> n = new Node<T>(verdi,q); //Oppretter en ny node n med p som foreldrepeker.
+            Node<T> n = new Node<T>(verdi, q); //Oppretter en ny node n med p som foreldrepeker.
         }
 
         antall++; // én verdi mer i treet
-        endringer ++;
+        endringer++;
         return true;              // vellykket innlegging
 
         //Det som må legges inn er at noden som legges inn må ha riktig verdi på foreldrepeker.
@@ -143,7 +138,28 @@ public class SBinTre<T> {
 
     //Oppgave 2
     public int antall(T verdi) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
+        //Sjekker om null er i treet.
+        if (verdi == null) {
+            return 0;
+        }
+
+        int antall = 0;
+
+        //Lager så en node n som er rotnoden.
+        Node<T> n = rot;
+
+        while (n != null) {
+            int cmp = comp.compare(verdi, n.verdi);
+            if (cmp < 0) {
+                n = n.venstre;
+            } else {
+                if (cmp == 0) {
+                    antall++;
+                    n = n.høyre;
+                }
+            }
+        }
+        return antall;
     }
 
     //Oppgave 6
@@ -154,34 +170,37 @@ public class SBinTre<T> {
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
+
     }
 
-    private static <T> Node<T> nestePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        private static <T > Node < T > nestePostorden(Node < T > p) {
+            throw new UnsupportedOperationException("Ikke kodet ennå!");
+        }
 
-    //Oppgave 4
-    public void postorden(Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        //Oppgave 4
+        public void postorden (Oppgave<? super T> oppgave){
+            throw new UnsupportedOperationException("Ikke kodet ennå!");
+        }
 
-    public void postordenRecursive(Oppgave<? super T> oppgave) {
-        postordenRecursive(rot, oppgave);
-    }
+        public void postordenRecursive (Oppgave < ? super T > oppgave){
+            postordenRecursive(rot, oppgave);
+        }
 
-    private void postordenRecursive(Node<T> p, Oppgave<? super T> oppgave) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        private void postordenRecursive (Node < T > p, Oppgave < ? super T > oppgave){
+            throw new UnsupportedOperationException("Ikke kodet ennå!");
+        }
 
-    //Oppgave 5
+        //Oppgave 5
 
-    public ArrayList<T> serialize() {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
-
-    static <K> SBinTre<K> deserialize(ArrayList<K> data, Comparator<? super K> c) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-    }
+        public ArrayList<T> serialize () {
+            throw new UnsupportedOperationException("Ikke kodet ennå!");
+        }
 
 
-} // ObligSBinTre
+        static <K> SBinTre <K> deserialize(ArrayList < K > data, Comparator < ? super K > c) {
+            throw new UnsupportedOperationException("Ikke kodet ennå!");
+        }
+
+
+    } // ObligSBinTre
+

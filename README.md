@@ -2,11 +2,17 @@
 
 Denne oppgaven er en innlevering i Algoritmer og Datastrukturer. 
 Oppgaven er levert av følgende student:
-* Navn Navnesen, S123456, s123456@oslomet.no
+* Herman Østby, S362120, s362120@oslomet.no
 
 
 # Oppgavebeskrivelse
 
-I oppgave 1 så gikk jeg frem ved å ...
+I oppgave 1 så gikk jeg frem ved å kopiere inn programkoden. 
+Deretter lager jeg en ny node med foreldrepeker q. 
 
-I oppgave 2 så brukte jeg en ... til å ...
+Oppgave 2 løste jeg ved å først sjekke om verdien er null er i treet.
+Deretter lager jeg hjelpevariabel antall. Så lager jeg en rotnode n.
+Så benytter jeg meg av en While løkke. I denne sammenliknes verdien vi har
+med nodens verdi. Ut ifra dette så bestemmes om det skal være høyre eller venstre barn.
+
+I oppgave 3 
