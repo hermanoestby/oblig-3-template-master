@@ -122,7 +122,7 @@ public class SBinTre<T> {
         }
         else{
             q.høyre = p;           // høyre barn til q
-            Node <T> n = new Node<T>(verdi,p); //Oppretter en ny node n med p som foreldrepeker.
+            Node <T> n = new Node<T>(verdi,q); //Oppretter en ny node n med p som foreldrepeker.
         }
 
         antall++; // én verdi mer i treet
