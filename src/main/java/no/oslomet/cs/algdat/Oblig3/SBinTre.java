@@ -169,8 +169,17 @@ public class SBinTre<T> {
 
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
-        throw new UnsupportedOperationException("Ikke kodet ennå!");
-
+        //Finne første noden når man det er sortert etter postorden. Bruker her en while-løkke
+        //Sjekker om nodene har en verdi
+        while(p.venstre != null || p.høyre != null){
+            if(p.venstre != null){
+                p=p.venstre;
+            }
+            if(p.høyre!=null){
+                p=p.høyre;
+            }
+        }
+        return p;
     }
 
         private static <T > Node < T > nestePostorden(Node < T > p) {
