@@ -110,14 +110,11 @@ public class SBinTre<T> {
         p = new Node<T>(verdi, null);  // oppretter en ny node, med foreldrepeker lik null siden den ikke er satt inn noe sted
 
         if (q == null) {
-            rot = p; // p blir rotnode
-            Node<T> n = new Node<T>(verdi, null); //Oppretter en node n med forelder med nullverdi
+            rot = new Node<T>(verdi, null); //p blir rotnode
         } else if (cmp < 0) {
-            q.venstre = p; // venstre barn til q
-            Node<T> n = new Node<T>(verdi, q); //Oppretter en ny node n med q som foreldrepeker
+            q.venstre = new Node<T>(verdi, q); //venstre barn til q
         } else {
-            q.høyre = p;           // høyre barn til q
-            Node<T> n = new Node<T>(verdi, q); //Oppretter en ny node n med p som foreldrepeker.
+            q.høyre =  new Node<T>(verdi, q);    // høyre barn til q
         }
 
         antall++; // én verdi mer i treet
@@ -138,7 +135,7 @@ public class SBinTre<T> {
 
     //Oppgave 2
     public int antall(T verdi) {
-        //Sjekker om null er i treet.
+        //Sjekker om verdien vi ser etter er null.
         if (verdi == null) {
             return 0;
         }
@@ -155,8 +152,8 @@ public class SBinTre<T> {
             } else {
                 if (cmp == 0) {
                     antall++;
-                    n = n.høyre;
                 }
+                n = n.høyre;
             }
         }
         return antall;
@@ -174,8 +171,7 @@ public class SBinTre<T> {
         while(p.venstre != null || p.høyre != null){
             if(p.venstre != null){
                 p=p.venstre;
-            }
-            if(p.høyre!=null){
+            }else {
                 p=p.høyre;
             }
         }
@@ -183,7 +179,30 @@ public class SBinTre<T> {
     }
 
         private static <T > Node < T > nestePostorden(Node < T > p) {
-            throw new UnsupportedOperationException("Ikke kodet ennå!");
+            //nestePostorden skal returnere den noden som kommer
+            //etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
+
+            //Hvis p er rotnode, returner null.
+            if (p.forelder==null){
+                return null;
+            }
+            //Sjekker om p er et høyrebarn. I såfall er foreldre den neste.t
+            else if (p.forelder.høyre == p) {
+                return p.forelder;
+            }
+
+            //
+            else{
+                //Returnerer foreldrenoden hvis den er enebarn
+                if(p.forelder.høyre == null){
+                    return p.forelder;
+                }
+                //Hvis den ikke er enebarn så kaller vi på en annen metode slik at vi
+                //returnerer førstePostorden i subtreet til høyrebarnet til foreldren dens
+                else{
+                    return førstePostorden(p.forelder.høyre);
+                }
+            }
         }
 
         //Oppgave 4
