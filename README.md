@@ -18,3 +18,4 @@ med nodens verdi. Ut ifra dette så bestemmes om det skal være høyre eller ven
 
 I oppgave 3 sjekker jeg her om venstre forelder har barn. Hvis den ikke
 har det så sjekker jeg om høyre har barn. 
+

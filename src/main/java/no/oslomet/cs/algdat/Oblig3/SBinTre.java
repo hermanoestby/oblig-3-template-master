@@ -207,8 +207,8 @@ public class SBinTre<T> {
 
         //Oppgave 4
         public void postorden (Oppgave<? super T> oppgave){
-           Node <T> p= førstePostorden(rot);
-           while(p!=null){
+           Node <T> p= førstePostorden(rot); //Henter rotnode
+           while(p!=null){  //Så lengde den har en verdi så skrives ut neste verdi i postorden
                oppgave.utførOppgave(p.verdi);
                p = nestePostorden(p);
            }
@@ -220,14 +220,14 @@ public class SBinTre<T> {
 
         private void postordenRecursive (Node < T > p, Oppgave < ? super T > oppgave){
 
-        if(p.venstre!=null){
+        if(p.venstre!=null){ //sjekker om venstre node har en verdi hvis så, kalles det på metoden
             postordenRecursive(p.venstre,oppgave);
         }
-        if(p.høyre!=null){
+        if(p.høyre!=null){ //Sjekker det samme for høyre
             postordenRecursive(p.høyre,oppgave);
         }
 
-        oppgave.utførOppgave(p.verdi);
+        oppgave.utførOppgave(p.verdi); //Utfører oppgave
 
         }
 
