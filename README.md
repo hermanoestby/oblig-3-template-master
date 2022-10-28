@@ -20,5 +20,8 @@ I oppgave 3 sjekker jeg her om noden har venstre barn. Hvis den ikke
 har det så sjekker jeg om høyre har barn. Deretter forsetter jeg med dette frem til
 jeg har nådd nederst til venstra da dette er første node i postorden. 
 
-Løser oppgave 4 ved å følge stegene i oppgaveteksten. Oppretter en node, og kaller på metodene
-og utfører oppgaven. Dette bruker jeg en while løkke til frem til jeg har nådd rotnoden. 
+Løser oppgave 4 ved å følge stegene i oppgaveteksten. 
+Oppretter en node, og kaller på metodene  og utfører oppgaven. 
+Dette bruker jeg en while løkke til frem til jeg har nådd rotnoden.
+I den recursive metoden så kaller jeg metoden på seg selv med høyre/venstre barn.
+Utfører opppgaven etter de revursive kallene siden det er postorden. 
