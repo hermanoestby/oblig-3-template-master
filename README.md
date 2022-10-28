@@ -18,7 +18,8 @@ med nodens verdi. Ut ifra dette så bestemmes om det skal være høyre eller ven
 
 I oppgave 3 sjekker jeg her om noden har venstre barn. Hvis den ikke
 har det så sjekker jeg om høyre har barn. Deretter forsetter jeg med dette frem til
-jeg har nådd nederst til venstra da dette er første node i postorden. 
+jeg har nådd nederst til venstra da dette er første node i postorden.
+I nestePostorden følger jeg stegene i kompendiet for å finne neste node i postorden. 
 
 Løser oppgave 4 ved å følge stegene i oppgaveteksten. 
 Oppretter en node, og kaller på metodene  og utfører oppgaven. 
