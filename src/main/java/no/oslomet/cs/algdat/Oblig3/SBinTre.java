@@ -1,19 +1,10 @@
 package no.oslomet.cs.algdat.Oblig3;
 
-
-import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Objects;
 import java.util.StringJoiner;
 
 public class SBinTre<T> {
-
-
-    public static void main(String[] args) {
-
-
-    }
-
 
     private static final class Node<T>   // en indre nodeklasse
     {
@@ -104,17 +95,14 @@ public class SBinTre<T> {
             cmp = comp.compare(verdi, p.verdi);     // bruker komparatoren
             p = cmp < 0 ? p.venstre : p.høyre;     // flytter p
         }
-
         // p er nå null, dvs. ute av treet, q er den siste vi passerte
 
-        p = new Node<T>(verdi, null);  // oppretter en ny node, med foreldrepeker lik null siden den ikke er satt inn noe sted
-
         if (q == null) {
-            rot = new Node<T>(verdi, null); //p blir rotnode
+            rot = new Node<>(verdi, null); //p blir rotnode
         } else if (cmp < 0) {
-            q.venstre = new Node<T>(verdi, q); //venstre barn til q
+            q.venstre = new Node<>(verdi, q); //venstre barn til q
         } else {
-            q.høyre =  new Node<T>(verdi, q);    // høyre barn til q
+            q.høyre =  new Node<>(verdi, q);    // høyre barn til q
         }
 
         antall++; // én verdi mer i treet
@@ -124,6 +112,8 @@ public class SBinTre<T> {
         //Det som må legges inn er at noden som legges inn må ha riktig verdi på foreldrepeker.
     }
 
+    /*
+
     //Oppgave 6
     public boolean fjern(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
@@ -132,6 +122,8 @@ public class SBinTre<T> {
     public int fjernAlle(T verdi) {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
+
+     */
 
     //Oppgave 2
     public int antall(T verdi) {
@@ -158,11 +150,13 @@ public class SBinTre<T> {
         }
         return antall;
     }
-
+/*
     //Oppgave 6
     public void nullstill() {
         throw new UnsupportedOperationException("Ikke kodet ennå!");
     }
+
+ */
 
     //Oppgave 3
     private static <T> Node<T> førstePostorden(Node<T> p) {
@@ -177,11 +171,7 @@ public class SBinTre<T> {
         }
         return p;
     }
-
         private static <T > Node < T > nestePostorden(Node < T > p) {
-            //nestePostorden skal returnere den noden som kommer
-            //etter p i postorden. Hvis p er den siste i postorden, skal metoden returnere null
-
             //Hvis p er rotnode, returner null.
             if (p.forelder==null){
                 return null;
@@ -190,8 +180,6 @@ public class SBinTre<T> {
             else if (p.forelder.høyre == p) {
                 return p.forelder;
             }
-
-            //
             else{
                 //Returnerer foreldrenoden hvis den er enebarn
                 if(p.forelder.høyre == null){
@@ -217,7 +205,6 @@ public class SBinTre<T> {
         public void postordenRecursive (Oppgave < ? super T > oppgave){
             postordenRecursive(rot, oppgave);
         }
-
         private void postordenRecursive (Node < T > p, Oppgave < ? super T > oppgave){
 
         if(p.venstre!=null){ //sjekker om venstre node har en verdi hvis så, kalles det på metoden
@@ -231,6 +218,7 @@ public class SBinTre<T> {
 
         }
 
+        /*
         //Oppgave 5
 
         public ArrayList<T> serialize () {
@@ -241,6 +229,8 @@ public class SBinTre<T> {
         static <K> SBinTre <K> deserialize(ArrayList < K > data, Comparator < ? super K > c) {
             throw new UnsupportedOperationException("Ikke kodet ennå!");
         }
+
+         */
 
 
     } // ObligSBinTre
